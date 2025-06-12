@@ -6,5 +6,5 @@ urlpatterns = [
     path('moshina/<int:id>/', moshina_info, name='moshina_info'),
     path('moshina_update/<int:id>/', moshina_update, name='moshina_update'),
     path('moshina_add/', moshina_add, name='moshina_add'),
-    path('moshina_delete/<int:id>', moshina_delete, name='moshina_delete'),
+    path('moshina_delete/<int:id>/', moshina_delete, name='moshina_delete'),
 ]

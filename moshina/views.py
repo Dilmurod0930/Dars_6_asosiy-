@@ -58,8 +58,8 @@ def  moshina_add(request):
 
 
 def moshina_delete(request , id):
-    moshina = get_object_or_404(Moshina, id = id)
+    moshina = get_object_or_404(Moshina, id=id)
     if request.method == 'POST':
         moshina.delete()
         return redirect('moshina_lst')
-    return  render(request, "moshuna/moshina_delete.html", context={'moshina': moshina})
+    return render(request, "moshina/moshina_delete.html", context={'moshina': moshina})

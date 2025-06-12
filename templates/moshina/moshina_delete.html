@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>O‘chirishni tasdiqlash</title>
 </head>
 <body>
-<h1>Bu  delete  fayl  dilmurod </h1>
+    <h2>"{{ moshina.model_name }}" nomli mashinani o‘chirishni xohlaysizmi?</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">✅ Ha, o‘chir</button>
+        <a href="{% url 'moshina_lst' %}">❌ Yo‘q, orqaga qaytish</a>
+    </form>
 </body>
 </html>
