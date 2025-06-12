@@ -55,3 +55,11 @@ def  moshina_add(request):
         moshina.save()
         return redirect('moshina_lst')
     return render(request, "moshina/moshina_add.html", context={'moshina': moshina})
+
+
+def moshina_delete(request , id):
+    moshina = get_object_or_404(Moshina, id = id)
+    if request.method == 'POST':
+        moshina.delete()
+        return redirect('moshina_lst')
+    return  render(request, "moshuna/moshina_delete.html", context={'moshina': moshina})
