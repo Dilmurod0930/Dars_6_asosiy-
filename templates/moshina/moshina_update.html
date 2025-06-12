@@ -2,19 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Moshina Ma'lumotlari</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb); /* gradient fon */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: #94c577;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="number"],
+        .form-container input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .form-container input::placeholder {
+            color: #999;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4e54c8;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #3b40a4;
+        }
+    </style>
 </head>
 <body>
-<form method="post"  enctype="multipart/form-data">
-    {%  csrf_token %}
-    <input type="text" name="model_name" value="{{moshina.model_name}}"  placeholder="Moshina Nomi ">
-    <input type="text" name="model" value="{{moshina.model}}"  placeholder="Model">
-    <input type="text" name="color" value="{{moshina.color}}"  placeholder="Rangi ">
-    <input type="number" name="price" value="{{moshina.price}}"  placeholder="Narxi ($)">
-    <input type="text" name="year" value="{{moshina.year}}"  placeholder="Yili ">
-    <input type="text" name="description" value="{{moshina.description}}"  placeholder="Tavsiya ">
-    <input type="file" name="image" value="{{moshina.image}}">
-    <button type="submit" >Yuklash </button>
+<form class="form-container" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Moshina Ma'lumotlari</h2>
+    <input type="text" name="model_name" value="{{ moshina.model_name }}" placeholder="Moshina nomi">
+    <input type="text" name="model" value="{{ moshina.model }}" placeholder="Model">
+    <input type="text" name="color" value="{{ moshina.color }}" placeholder="Rangi">
+    <input type="number" name="price" value="{{ moshina.price }}" placeholder="Narxi ($)">
+    <input type="text" name="year" value="{{ moshina.year }}" placeholder="Yili">
+    <input type="text" name="description" value="{{ moshina.description }}" placeholder="Tavsif">
+    <input type="file" name="image">
+    <button type="submit">Yuklash</button>
 </form>
 </body>
 </html>
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form method="post"  enctype="multipart/form-data">-->
+<!--    {%  csrf_token %}-->
+<!--    <input type="text" name="model_name" value="{{moshina.model_name}}"  placeholder="Moshina Nomi ">-->
+<!--    <input type="text" name="model" value="{{moshina.model}}"  placeholder="Model">-->
+<!--    <input type="text" name="color" value="{{moshina.color}}"  placeholder="Rangi ">-->
+<!--    <input type="number" name="price" value="{{moshina.price}}"  placeholder="Narxi ($)">-->
+<!--    <input type="text" name="year" value="{{moshina.year}}"  placeholder="Yili ">-->
+<!--    <input type="text" name="description" value="{{moshina.description}}"  placeholder="Tavsiya ">-->
+<!--    <input type="file" name="image" value="{{moshina.image}}">-->
+<!--    <button type="submit" >Yuklash </button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
