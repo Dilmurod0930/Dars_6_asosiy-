@@ -38,7 +38,7 @@ def  moshina_update(request , id):
             moshina.image = image
         moshina.save()
         return redirect('moshina_info', id = id)
-    return render(request, 'moshina/moshina_update.html',  context={'moshina': moshina})
+    return render(request, 'moshina/moshina_update.html',  context={'moshina': 'moshina'})
 
 
 
