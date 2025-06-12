@@ -42,7 +42,7 @@ def  moshina_update(request , id):
 
 
 
-def  moshina_add(request , id):
+def  moshina_add(request):
     moshina = Moshina()
     if  request.method == 'POST':
         moshina.model_name = request.POST['model_name']

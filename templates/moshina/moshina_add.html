@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-
+<form method="post"  enctype="multipart/form-data">
+    {%  csrf_token %}
+    <input type="text" name="model_name" value="{{moshina.model_name}}"  placeholder="Moshina Nomi ">
+    <input type="text" name="model" value="{{moshina.model}}"  placeholder="Model">
+    <input type="text" name="color" value="{{moshina.color}}"  placeholder="Rangi ">
+    <input type="number" name="price" value="{{moshina.price}}"  placeholder="Narxi ($)">
+    <input type="text" name="year" value="{{moshina.year}}"  placeholder="Yili ">
+    <input type="text" name="description" value="{{moshina.description}}"  placeholder="Tavsiya ">
+    <input type="file" name="image" value="{{moshina.image}}">
+    <button type="submit" >Yuklash </button>
+</form>
 </body>
 </html>
