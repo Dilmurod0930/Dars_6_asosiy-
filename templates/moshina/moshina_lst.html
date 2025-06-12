@@ -1,21 +1,66 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <title>Mashinalar</title>
-</head>
-<body>
-    <h1>Mashinalar ro'yxati</h1>
+  <meta charset="UTF-8">
+  <title>Moshinalar ro'yxati</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
 
-    {% for m in moshina %}
-        <div style="margin-bottom: 20px;">
-            <h2>{{ m.model }} {{ m.model_name }}</h2>
-            <p>Rang: {{ m.color }}</p>
-            <p>Narx: ${{ m.price }}</p>
-            <p>Yil: {{ m.year }}</p>
-            <img src="{{ m.image.url }}" width="300">
-            <p>{{ m.description }}</p>
+    .bg-glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+  <!-- ✅ NAVBAR -->
+  <nav class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">AutoMarket</h1>
+      <ul class="flex space-x-6 font-medium">
+        <li><a href="/" class="hover:text-yellow-300">Asosiy</a></li>
+        <li><a href="/moshinalar/" class="hover:text-yellow-300">Moshinalar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ✅ HEADER -->
+  <header class="text-center py-12">
+    <div class="bg-glass max-w-2xl mx-auto p-6 rounded-2xl shadow-xl">
+      <h2 class="text-4xl font-bold text-indigo-800">Moshinalar ro'yxati</h2>
+      <p class="mt-2 text-gray-700 text-lg">Eng soʻnggi avtomobillarni shu yerdan toping!</p>
+    </div>
+  </header>
+
+  <!-- ✅ MASHINALAR RO'YXATI -->
+  <main class="max-w-7xl mx-auto px-6 pb-16">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      {% for m in moshina %}
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden transition hover:-translate-y-1 hover:shadow-indigo-400 duration-300">
+          <img src="{{ m.image.url }}" alt="{{ m.model_name }}" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-1">{{ m.model }} </h1>
+            <h4 class="text-2xl font-bold text-gray-800 mb-1"> {{ m.model_name }}</h4>
+            <p class="text-sm text-gray-600 mb-1">Rang: <span class="font-semibold">{{ m.color }}</span></p>
+            <p class="text-sm text-gray-600 mb-1">Yil: <span class="font-semibold">{{ m.year }}</span></p>
+            <p class="text-xl text-green-700 font-bold mb-3">${{ m.price }}</p>
+            <a href="#" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+            Maʼlumotlarni ko‘rish
+          </a>
+          </div>
         </div>
-    {% endfor %}
+      {% empty %}
+        <p class="text-center col-span-3 text-red-600 text-lg">Hozircha mashinalar mavjud emas.</p>
+      {% endfor %}
+    </div>
+  </main>
+
 </body>
 </html>
