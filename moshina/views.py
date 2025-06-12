@@ -39,3 +39,19 @@ def  moshina_update(request , id):
         moshina.save()
         return redirect('moshina_info', id = id)
     return render(request, 'moshina/moshina_update.html',  context={'moshina': moshina})
+
+
+
+def  moshina_add(request , id):
+    moshina = Moshina()
+    if  request.method == 'POST':
+        moshina.model_name = request.POST['model_name']
+        moshina.model = request.POST['model']
+        moshina.color = request.POST.get('color')
+        moshina.price = request.POST.get('price')
+        moshina.year = request.POST.get('year')
+        moshina.description = request.POST.get('description')
+        moshina.image = request.FILES.get('image')
+        moshina.save()
+        return redirect('moshina_lst')
+    return render(request, "moshina/moshina_add.html", context={'moshina': moshina})
