@@ -1,16 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <title>O‘chirishni tasdiqlash</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            animation: fadeIn 1s ease;
+        }
+
+        .confirm-box {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: slideIn 0.8s ease;
+        }
+
+        .confirm-box h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        button, a {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button {
+            background-color: #f44336;
+            border: none;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+            transform: scale(1.05);
+        }
+
+        a {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        a:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
+
+<div class="confirm-box">
     <h2>"{{ moshina.model_name }}" nomli mashinani o‘chirishni xohlaysizmi?</h2>
 
-    <form method="post">
+    <form method="post" style="margin-top: 20px;">
         {% csrf_token %}
         <button type="submit">✅ Ha, o‘chir</button>
         <a href="{% url 'moshina_lst' %}">❌ Yo‘q, orqaga qaytish</a>
     </form>
+</div>
+
 </body>
 </html>

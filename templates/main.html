@@ -2,36 +2,60 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Asosiy sahifa</title>
+    <title>AutoGallery - Asosiy sahifa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Matnlar uchun soya -->
+    <style>
+        .text-shadow {
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="relative text-white">
 
-    <!-- Navbar -->
-    <header class="bg-gray-800 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">AutoGallery</h1>
-            <nav class="space-x-6">
-                <a href="{% url 'moshina_lst' %}" class="text-gray-300 hover:text-white">Mashinalar</a>
-                <a href="{% url 'moshina_add' %}" class="text-gray-300 hover:text-white">Mashina  Qo'shish</a>
-                <a href="#" class="text-gray-300 hover:text-white">Bog‘lanish</a>
-            </nav>
-        </div>
-    </header>
+    <!-- Orqa fon rasmi -->
+    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://cdn.pixabay.com/photo/2015/01/19/13/51/car-604019_1280.jpg');"></div>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1617531653332-3e9d3218be3f');">
-        <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center px-4">
-            <h2 class="text-5xl font-bold mb-6">Sifatli avtomobillar dunyosiga xush kelibsiz</h2>
-            <p class="text-xl mb-8 max-w-2xl">Eng so‘nggi modellardagi mashinalar, eng yaxshi narxlar va kafolat bilan!</p>
+    <!-- Yarim qoramtir qatlam -->
+    <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+
+    <!-- Kontent -->
+    <div class="relative z-20 min-h-screen flex flex-col">
+
+        <!-- Navbar -->
+        <header class="bg-black bg-opacity-60 shadow-md">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <h1 class="text-3xl font-bold">🚗 AutoGallery</h1>
+                <nav class="space-x-6">
+                    <a href="{% url 'moshina_lst' %}" class="text-gray-300 hover:text-white transition">Mashinalar</a>
+                    <a href="{% url 'moshina_add' %}" class="text-gray-300 hover:text-white transition">Mashina Qo‘shish</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Bog‘lanish</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Sektsiya -->
+        <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
+            <h2 class="text-5xl font-extrabold mb-6 text-shadow">Sifatli avtomobillar dunyosi</h2>
+            <p class="text-xl mb-8 max-w-2xl text-gray-300 text-shadow">
+                Bizda siz eng so‘nggi modellardagi mashinalarni topasiz — ishonchli, arzon va chiroyli.
+            </p>
             <a href="{% url 'moshina_lst' %}">
-                <button class="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition">
-                    Mashinalarni ko‘rish
+                <button class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition">
+                    🔍 Mashinalarni ko‘rish
                 </button>
             </a>
-        </div>
-    </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-black bg-opacity-60 text-center py-4 text-sm text-gray-400">
+            &copy; 2025 AutoGallery. Barcha huquqlar himoyalangan.
+        </footer>
+    </div>
 
 </body>
 </html>
