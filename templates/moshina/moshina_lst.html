@@ -51,7 +51,7 @@
             <p class="text-sm text-gray-600 mb-1">Rang: <span class="font-semibold">{{ m.color }}</span></p>
             <p class="text-sm text-gray-600 mb-1">Yil: <span class="font-semibold">{{ m.year }}</span></p>
             <p class="text-xl text-green-700 font-bold mb-3">${{ m.price }}</p>
-            <a href="#" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+            <a href="{% url 'moshina_info' m.id %}" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
             Maʼlumotlarni ko‘rish
           </a>
           </div>
