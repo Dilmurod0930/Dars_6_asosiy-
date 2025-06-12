@@ -3,5 +3,5 @@ from  .views import main, moshina_lst
 
 urlpatterns = [
     path('', main, name='main'),
-    path('moshina/', moshina_lst, name='moshina_lst'),
+    path('moshina_lst/', moshina_lst, name='moshina_lst'),
 ]

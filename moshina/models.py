@@ -7,7 +7,7 @@ class  Moshina(models.Model):
     color = models.CharField(max_length=50)  # Masalan: 'Qora'
     price = models.DecimalField(max_digits=10, decimal_places=2)  # Masalan: 14500.00
     year = models.PositiveIntegerField()  # Masalan: 2023
-    image = models.ImageField(upload_to='car_images/')  # Rasm uchun
+    image = models.ImageField(upload_to='media/')  # Rasm uchun
     description = models.TextField(blank=True)  # Mashina haqida tavsif
 
     class Meta:

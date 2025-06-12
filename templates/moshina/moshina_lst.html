@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mashinalar</title>
 </head>
 <body>
-    <h1>Bu  Lst  page Moshina</h1>
+    <h1>Mashinalar ro'yxati</h1>
+
+    {% for m in moshina %}
+        <div style="margin-bottom: 20px;">
+            <h2>{{ m.model }} {{ m.model_name }}</h2>
+            <p>Rang: {{ m.color }}</p>
+            <p>Narx: ${{ m.price }}</p>
+            <p>Yil: {{ m.year }}</p>
+            <img src="{{ m.image.url }}" width="300">
+            <p>{{ m.description }}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>
