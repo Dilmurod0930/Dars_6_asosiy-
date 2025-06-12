@@ -10,3 +10,8 @@ def  moshina_lst(request):
     moshina = Moshina.objects.all()
     context = {'moshina': moshina}
     return render(request, 'moshina/moshina_lst.html', context = context)
+
+def  moshina_info(request , id):
+    moshina = Moshina.objects.get(id = id)
+    context = {'moshina': moshina}
+    return render(request, 'moshina/moshina_info.html', context = context)
